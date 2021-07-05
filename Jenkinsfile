@@ -17,10 +17,17 @@ pipeline {
                 sh "mvn test"
             }
         }
-        stage('Deploy'){
+        stage('Dockerbuild'){
             steps {
-                sh "mvn spring-boot:run"
+                docker build -f Dockerfile -t jenkins-first .
             }
         }
+
+        stage('Dockerrun'){
+            steps {
+                docker run -p 8091:8091 jenkins-first
+            }
+        }
+
     }
 }
