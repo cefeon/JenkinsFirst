@@ -17,5 +17,8 @@ pipeline {
                 sh "mvn test"
             }
         }
+        stage('Deploy'){
+            echo "mvn spring-boot:run" | at now + 1 minutes
+        }
     }
 }
