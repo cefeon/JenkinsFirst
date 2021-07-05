@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { dockerfile true }
 
     tools {
         maven "M3"
@@ -20,6 +20,7 @@ pipeline {
 
         stage('Dockerbuild'){
             steps {
+
                 echo "created docker container"
             }
         }
