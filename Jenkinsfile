@@ -17,17 +17,11 @@ pipeline {
                 sh "mvn test"
             }
         }
+
         stage('Dockerbuild'){
             steps {
-                docker build -f Dockerfile -t jenkins-first .
+                agent { dockerfile true }
             }
         }
-
-        stage('Dockerrun'){
-            steps {
-                docker run -p 8091:8091 jenkins-first
-            }
-        }
-
     }
 }
