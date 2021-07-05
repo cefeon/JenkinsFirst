@@ -17,12 +17,5 @@ pipeline {
                 sh "mvn test"
             }
         }
-
-        stage('Dockerbuild'){
-            steps {
-
-                echo "created docker container"
-            }
-        }
     }
 }
