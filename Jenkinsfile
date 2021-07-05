@@ -21,6 +21,7 @@ pipeline {
         stage('Dockerbuild'){
             steps {
                 agent { dockerfile true }
+                echo "created docker container"
             }
         }
     }
